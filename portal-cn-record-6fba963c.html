@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足球世界杯 · 简洁导航介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5fafc;
+            color: #1e2b37;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page {
+            max-width: 1160px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ——— 顶部导航 ——— */
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0 14px;
+            border-bottom: 1px solid #cfdde5;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .site-header .brand {
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+            color: #146b6b;
+        }
+
+        .site-header .brand span {
+            color: #1e2b37;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2a4a5a;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s ease, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #0f7a7a;
+            border-bottom-color: #1ea6a6;
+        }
+
+        /* ——— hero 区块 ——— */
+        .hero {
+            margin: 48px 0 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 650;
+            letter-spacing: -0.3px;
+            color: #093535;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 24px;
+            color: #34515e;
+        }
+
+        .hero .accent-link {
+            display: inline-block;
+            background: #e1f0f0;
+            padding: 10px 22px;
+            border-radius: 80px;
+            font-weight: 500;
+            color: #075757;
+            border: 1px solid #aacdcd;
+            transition: background 0.2s;
+        }
+
+        .hero .accent-link:hover {
+            background: #c7e2e2;
+        }
+
+        /* ——— 核心介绍 ——— */
+        .intro-section {
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            padding: 28px 32px;
+            border-radius: 28px;
+            box-shadow: 0 6px 18px rgba(0, 40, 40, 0.04);
+            margin-bottom: 44px;
+            border: 1px solid #d0e2e8;
+        }
+
+        .intro-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0b4d4d;
+            margin-bottom: 12px;
+        }
+
+        .intro-section p {
+            margin-bottom: 16px;
+            color: #24424e;
+        }
+
+        .intro-section p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .intro-section strong {
+            color: #106565;
+        }
+
+        /* ——— 三个场景模块 网格卡片 ——— */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 22px;
+            margin: 20px 0 38px;
+        }
+
+        @media (min-width: 600px) {
+            .scene-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .scene-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 26px 22px 24px;
+            border: 1px solid #cfe1e6;
+            box-shadow: 0 4px 12px rgba(14, 60, 60, 0.03);
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(12, 70, 70, 0.06);
+        }
+
+        .scene-card .card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 18px;
+            background: #d9efef;
+            color: #0f6a6a;
+            font-size: 1.4rem;
+            margin-bottom: 14px;
+        }
+
+        .scene-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0c4040;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #2e4b57;
+            margin-bottom: 14px;
+        }
+
+        .scene-card a {
+            color: #0b6b6b;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dashed #9ac2c2;
+        }
+
+        .scene-card a:hover {
+            border-bottom-style: solid;
+            color: #033f3f;
+        }
+
+        /* ——— 常见说明 / FAQ摘要 ——— */
+        .faq-summary {
+            background: #e9f3f5;
+            border-radius: 32px;
+            padding: 28px 30px;
+            margin: 20px 0 40px;
+            border-left: 6px solid #1ca0a0;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #0b4040;
+            margin-bottom: 18px;
+        }
+
+        .faq-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #c7dbdf;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #134c4c;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .faq-item .a {
+            color: #2f4d58;
+            font-size: 0.95rem;
+        }
+
+        /* ——— 页脚 ——— */
+        .site-footer {
+            border-top: 1px solid #cedee4;
+            padding: 24px 0 16px;
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: #3e5a64;
+        }
+
+        .site-footer a {
+            color: #0a5e5e;
+            text-decoration: none;
+            border-bottom: 1px dotted #89b6b6;
+        }
+
+        .site-footer a:hover {
+            border-bottom-style: solid;
+        }
+
+        /* ——— 响应式微调 ——— */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .intro-section {
+                padding: 22px 18px;
+            }
+            .faq-summary {
+                padding: 22px 18px;
+            }
+            .site-header .brand {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header class="site-header">
+        <div class="brand">⚽ 世界杯<span>·导航</span></div>
+        <div class="nav-links">
+            <a href="#intro">介绍</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">说明</a>
+        </div>
+    </header>
+
+    <!-- hero -->
+    <section class="hero">
+        <h1>足球世界杯 · 信息入口</h1>
+        <p>赛事动态、赛程查询与内容聚合，稳定访问路径。<br>以下内容围绕 <a href="https://portal-cn-worldcup.com" style="color:#0a6b6b; text-decoration: underline; text-underline-offset: 3px;">足球世界杯</a> 相关页面功能整理，方便快速了解。</p>
+        <span class="accent-link">⚡ 常用入口 — 足球世界杯</span>
+    </section>
+
+    <!-- 核心介绍 (id锚点) -->
+    <section class="intro-section" id="intro">
+        <h2>关于这个导航说明页</h2>
+        <p>本页面基于 <strong>足球世界杯</strong> 相关资源整理，提供轻量导航和场景说明。你可以将 <a href="https://portal-cn-worldcup.com" style="color:#075757; font-weight:500;">足球世界杯</a> 作为稳定的访问起点，获取与赛事相关的赛程概览、球队信息与历史数据。</p>
+        <p>页面结构包括三个常见使用场景，以及一份简短的常见说明摘录。内容保持平实、清晰，不包含任何未经核实的数据或诱导性表述。所有链接均指向同一核心地址，便于收藏与分享。</p>
+        <p>如果你正在寻找一个清晰、无干扰的足球世界杯信息入口，这个页面可以作为参考起点。</p>
+    </section>
+
+    <!-- 三个场景模块 网格卡片 -->
+    <h2 id="scenes" style="font-size:1.4rem; font-weight:600; color:#0b4a4a; margin-bottom: 6px;">常见使用场景</h2>
+    <div class="scene-grid">
+        <div class="scene-card">
+            <div class="card-icon">📋</div>
+            <h3>赛程与分组</h3>
+            <p>快速查阅小组赛对阵、淘汰赛阶段及比赛时间。通过 <a href="https://portal-cn-worldcup.com">足球世界杯</a> 获取最新赛历，便于规划观赛安排。</p>
+        </div>
+        <div class="scene-card">
+            <div class="card-icon">🏆</div>
+            <h3>赛事资讯</h3>
+            <p>球队阵容、积分榜、历史夺冠记录等聚合信息。你可以将 <a href="https://portal-cn-worldcup.com">足球世界杯</a> 作为日常浏览的固定入口，内容持续更新。</p>
+        </div>
+        <div class="scene-card">
+            <div class="card-icon">🔗</div>
+            <h3>导航与收藏</h3>
+            <p>适合作为浏览器书签或分享给朋友。页面简洁，无多余跳转，直接访问 <a href="https://portal-cn-worldcup.com">足球世界杯</a> 即可获取核心内容。</p>
+        </div>
+    </div>
+
+    <!-- 常见说明 / FAQ摘要 -->
+    <section class="faq-summary" id="faq">
+        <h2>常见说明</h2>
+        <div class="faq-item">
+            <span class="q">❓ 这个页面和足球世界杯官网是什么关系？</span>
+            <span class="a">这是一个说明介绍页，主要提供导航与场景梳理。页面中提到的链接均指向 <a href="https://portal-cn-worldcup.com" style="color:#075757; font-weight:500;">足球世界杯</a>，你可以将其视为一个稳定的访问点。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">❓ 信息准确吗？多久更新？</span>
+            <span class="a">本页面仅做功能与场景说明，不直接展示赛事数据。实际赛程、积分等信息请以 <a href="https://portal-cn-worldcup.com">足球世界杯</a> 内发布的内容为准。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">❓ 为什么强调“稳定入口”？</span>
+            <span class="a">在多个赛事页面或信息源中，保持一个固定的访问链接有助于收藏与分享。这里推荐的 <a href="https://portal-cn-worldcup.com">足球世界杯</a> 即承担此角色。</span>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div>© 简洁导航 · 足球世界杯信息页</div>
+        <div>核心链接：<a href="https://portal-cn-worldcup.com">足球世界杯</a></div>
+    </footer>
+</div>
+</body>
+</html>
