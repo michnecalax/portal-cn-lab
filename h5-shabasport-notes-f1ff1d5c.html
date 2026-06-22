@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沙巴体育 · 快速识别平台用途</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fde9cf 0%, #f7dbb0 30%, #f3cca1 70%, #edbb8e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem;
+        }
+
+        .page-wrapper {
+            max-width: 1120px;
+            width: 100%;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 2.5rem;
+            box-shadow: 0 12px 28px rgba(180, 120, 60, 0.15), 0 4px 12px rgba(0,0,0,0.05);
+            padding: 2.5rem 2.2rem;
+            margin-bottom: 2.2rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 18px 36px rgba(170, 100, 40, 0.18);
+        }
+
+        /* hero */
+        .hero-area {
+            text-align: center;
+            padding: 2.8rem 1.5rem 2.2rem;
+        }
+
+        .hero-area h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #4e2e1b;
+            background: linear-gradient(135deg, #6d3f1e, #9d5e2b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.9rem;
+        }
+
+        .hero-area .subhead {
+            font-size: 1.2rem;
+            color: #5f3e26;
+            background: rgba(255, 235, 210, 0.6);
+            display: inline-block;
+            padding: 0.4rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 420;
+            backdrop-filter: blur(2px);
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #3c2a1b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero-desc a {
+            color: #a85e2a;
+            font-weight: 550;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(168, 94, 42, 0.25);
+            transition: border-color 0.2s;
+        }
+
+        .hero-desc a:hover {
+            border-bottom-color: #a85e2a;
+        }
+
+        /* 优势区 — 网格卡片 */
+        .strength-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 1.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .strength-item {
+            background: #fffbf5;
+            padding: 1.5rem 1rem;
+            border-radius: 2rem;
+            text-align: center;
+            border: 1px solid #f0dcc5;
+            transition: transform 0.15s, background 0.2s;
+        }
+
+        .strength-item:hover {
+            transform: translateY(-3px);
+            background: #fff9ef;
+        }
+
+        .strength-item .emoji-badge {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .strength-item h3 {
+            color: #4a2f1b;
+            font-size: 1.2rem;
+            font-weight: 550;
+            margin-bottom: 0.3rem;
+        }
+
+        .strength-item p {
+            color: #5e4230;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* 说明区 */
+        .explain-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .explain-text {
+            flex: 2;
+            min-width: 240px;
+        }
+
+        .explain-text h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #4e2e1b;
+            border-left: 6px solid #c3834a;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .explain-text p {
+            color: #3f2c1d;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 1.02rem;
+        }
+
+        .explain-text a {
+            color: #9a562b;
+            font-weight: 550;
+            text-decoration: none;
+            border-bottom: 1.5px solid #dba87a;
+        }
+
+        .explain-text a:hover {
+            border-bottom-color: #8b4a1f;
+        }
+
+        .explain-highlight {
+            background: #faead9;
+            border-radius: 28px;
+            padding: 1.6rem 1.8rem;
+            flex: 1.2;
+            min-width: 200px;
+        }
+
+        .explain-highlight h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #5d351b;
+            margin-bottom: 0.8rem;
+        }
+
+        .explain-highlight ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .explain-highlight li {
+            padding: 0.5rem 0 0.5rem 1.8rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23b4713b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') left center no-repeat;
+            background-size: 1.1rem;
+            color: #3f2b1b;
+            font-size: 0.98rem;
+        }
+
+        /* faq摘要 */
+        .faq-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #4e2e1b;
+            margin-bottom: 0.2rem;
+            letter-spacing: -0.3px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ebd6c1;
+            padding: 0.9rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: 0;
+        }
+
+        .faq-q {
+            font-weight: 570;
+            color: #4e2e1b;
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-a {
+            color: #4b3627;
+            line-height: 1.5;
+            font-size: 0.98rem;
+        }
+
+        .faq-a a {
+            color: #9a562b;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dashed #c58a5a;
+        }
+
+        .faq-a a:hover {
+            border-bottom-style: solid;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            text-align: center;
+            padding: 1.8rem 0.8rem 0.5rem;
+            color: #4d3625;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a {
+            color: #7a4a27;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #cb9d75;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #7a4a27;
+        }
+
+        .footer-links .sep {
+            margin: 0 0.7rem;
+            opacity: 0.35;
+        }
+
+        .copyright {
+            margin-top: 1.2rem;
+            opacity: 0.6;
+            font-size: 0.85rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body { padding: 1.2rem 0.8rem; }
+            .card { padding: 1.8rem 1.2rem; border-radius: 2rem; }
+            .hero-area h1 { font-size: 2.0rem; }
+            .hero-area .subhead { font-size: 1rem; }
+            .strength-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .explain-block { flex-direction: column; }
+            .explain-highlight { margin-top: 0.5rem; }
+            .faq-summary h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- HERO 区 -->
+    <div class="card hero-area">
+        <h1>沙巴体育 · 一站识别</h1>
+        <div class="subhead">体育赛事 &amp; 实时数据聚合</div>
+        <p class="hero-desc">
+            无论你是初次浏览还是寻找集中体育资讯的入口，<a href="https://h5-shabasport.com">沙巴体育</a> 提供了一种轻量、快速的方式，帮你聚焦赛事动态、比分与赛程。页面设计以信息效率为优先，降低认知负荷。
+        </p>
+    </div>
+
+    <!-- 优势区 -->
+    <div class="card">
+        <div class="strength-grid">
+            <div class="strength-item">
+                <span class="emoji-badge">⚡</span>
+                <h3>轻量加载</h3>
+                <p>移动端优先架构，页面体积克制，打开即用。</p>
+            </div>
+            <div class="strength-item">
+                <span class="emoji-badge">📊</span>
+                <h3>实时比分</h3>
+                <p>主流联赛、杯赛数据更新及时，一目了然。</p>
+            </div>
+            <div class="strength-item">
+                <span class="emoji-badge">🗂️</span>
+                <h3>赛事归类</h3>
+                <p>按联赛、时间、热门程度分类，查找直观。</p>
+            </div>
+            <div class="strength-item">
+                <span class="emoji-badge">🔗</span>
+                <h3>直达赛程</h3>
+                <p>减少跳转步骤，从首页即可进入具体赛事列表。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区 + 场景 -->
+    <div class="card">
+        <div class="explain-block">
+            <div class="explain-text">
+                <h2>它解决什么问题？</h2>
+                <p>
+                    许多体育迷希望快速判断一个网站是否提供自己关注的联赛、实时比分或未来赛程。<a href="https://h5-shabasport.com">沙巴体育</a> 
+                    的首页结构清晰，顶部展示关键导航与热门赛事，中部集中呈现比分与倒计时，降低信息检索时间。
+                </p>
+                <p>
+                    无论是足球、篮球、网球或其他主流项目，页面按运动种类与赛事阶段组织内容。适合赛前查看对阵、赛中追踪比分、赛后回顾数据。
+                </p>
+                <p>
+                    同时不强制注册即可浏览公开赛事信息，降低使用门槛。你可以通过顶部菜单快速切换运动项目或联赛。
+                </p>
+            </div>
+            <div class="explain-highlight">
+                <h3>适用场景举例</h3>
+                <ul>
+                    <li>赛前查看当日焦点战时间</li>
+                    <li>快速比较不同联赛的进行场次</li>
+                    <li>从首页识别是否有你关注的队伍</li>
+                    <li>通过页面分类定位比赛阶段</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+        <div class="faq-summary">
+            <h2>常见问题 · 摘要</h2>
+            <div class="faq-item">
+                <div class="faq-q">这个页面主要提供什么？</div>
+                <div class="faq-a">
+                    它属于体育资讯聚合型页面，包括即时比分、赛程预告与赛事列表。你可以在<a href="https://h5-shabasport.com">沙巴体育</a>中查看不同运动的实时数据。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">需要下载或安装吗？</div>
+                <div class="faq-a">
+                    不需要。页面基于 H5 响应式设计，通过浏览器直接访问，移动端与桌面端均可自适应。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">数据更新频率如何？</div>
+                <div class="faq-a">
+                    赛事比分与状态会持续刷新，具体更新节奏依据比赛进行情况。建议在热门比赛时段保持页面活跃。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">如何快速找到某一场比赛？</div>
+                <div class="faq-a">
+                    可以利用页面上方的联赛筛选或搜索框（如果有），也可以通过滚动浏览热门赛事区域。首页默认展示当前进行中的高关注度赛事。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部链接 与 版权 -->
+    <div class="footer-links">
+        <span>了解更多：</span>
+        <a href="https://h5-shabasport.com">沙巴体育</a>
+        <span class="sep">·</span>
+        <a href="#">赛事说明</a>
+        <span class="sep">·</span>
+        <a href="#">常见问题</a>
+        <div class="copyright">
+            © 信息参考页 · 内容仅供功能说明
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
