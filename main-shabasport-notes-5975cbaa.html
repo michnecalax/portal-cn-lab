@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>沙巴体育 · 产品说明页</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f6fafa;
+      color: #1e2b2f;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* 卡片网格风格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 600px) {
+      .card-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 960px) {
+      .card-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 24px 22px;
+      box-shadow: 0 4px 12px rgba(0, 50, 50, 0.04), 0 1px 3px rgba(0, 60, 60, 0.06);
+      transition: box-shadow 0.2s ease;
+      border: 1px solid #dcefef;
+    }
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0, 90, 90, 0.08);
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #0f4a4e;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-title i {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #1f8b8f;
+      border-radius: 50%;
+    }
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #2a4347;
+    }
+    .card ul {
+      padding-left: 20px;
+      list-style: none;
+    }
+    .card ul li::before {
+      content: "▹";
+      color: #2f9b9f;
+      padding-right: 8px;
+    }
+    .card ul li {
+      margin-bottom: 6px;
+    }
+
+    /* hero 区 */
+    .hero {
+      background: linear-gradient(145deg, #dff3f2 0%, #c8e9e8 100%);
+      border-radius: 28px;
+      padding: 40px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      color: #08383b;
+      line-height: 1.2;
+    }
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #1d5256;
+      max-width: 680px;
+    }
+    .hero .tagline {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(2px);
+      padding: 10px 18px;
+      border-radius: 60px;
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #08585c;
+      border: 1px solid rgba(31, 139, 143, 0.3);
+    }
+
+    /* 提示条 / FAQ 摘要区 */
+    .notice-strip {
+      background: #e9f5f4;
+      border-radius: 60px;
+      padding: 18px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 18px;
+      border: 1px solid #c4e3e2;
+    }
+    .notice-strip span {
+      font-size: 0.95rem;
+      color: #134f53;
+    }
+    .notice-strip a {
+      color: #0b6b70;
+      text-decoration: none;
+      font-weight: 550;
+      border-bottom: 2px solid #8acccb;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .notice-strip a:hover {
+      border-bottom-color: #0b6b70;
+      color: #043b3f;
+    }
+
+    /* faq 折叠摘要 */
+    .faq-mini {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 24px 22px;
+      border: 1px solid #d0e6e5;
+    }
+    .faq-mini h3 {
+      font-size: 1.1rem;
+      color: #074245;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .faq-mini h3::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 16px;
+      background: #1f8b8f;
+      border-radius: 6px;
+    }
+    .faq-item {
+      padding: 10px 0;
+      border-bottom: 1px dashed #cde3e2;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #1b5a5e;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+    .faq-item p {
+      font-size: 0.9rem;
+      color: #2c5155;
+    }
+
+    /* 使用建议卡片专用 */
+    .suggestion-card {
+      background: #f0fbfa;
+      border: 1px solid #b5dedc;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.7rem; }
+      .hero { padding: 28px 18px; }
+      .card { padding: 18px 16px; }
+      .notice-strip { border-radius: 28px; flex-direction: column; align-items: flex-start; }
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #73999b;
+      padding: 24px 0 8px;
+      border-top: 1px solid #d0e2e1;
+      margin-top: 8px;
+    }
+    .link-sentence {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px 24px;
+      text-align: center;
+      border: 1px solid #c7e2e1;
+      font-size: 1rem;
+    }
+    .link-sentence a {
+      color: #0a6b70;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid #7ac5c3;
+      transition: border-color 0.2s;
+    }
+    .link-sentence a:hover {
+      border-bottom-color: #0a6b70;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 摘要区：再次访问与收藏的基调 -->
+  <div class="hero">
+    <div class="tagline">重新遇见 · 持续关注</div>
+    <h1>沙巴体育 · 产品说明</h1>
+    <div class="sub">
+      一份认真整理的摘要与指引。无论你是之前收藏过、偶然到访还是打算把这页面留在书签里， 
+      我们都希望用清晰的方式呈现它的亮点、适用场景和一些使用前的提示。
+    </div>
+  </div>
+
+  <!-- 网格卡片：亮点 + 使用建议 + 可信说明 -->
+  <div class="card-grid">
+
+    <!-- 卡片1：服务亮点 -->
+    <div class="card">
+      <div class="card-title"><i></i> 产品亮点</div>
+      <ul>
+        <li>界面保持简练，重点信息一目了然</li>
+        <li>多端适配，手机与桌面浏览体验一致</li>
+        <li>持续维护，功能与内容会定期更新补充</li>
+        <li>基于通用流程设计，降低使用门槛</li>
+      </ul>
+    </div>
+
+    <!-- 卡片2：使用场景 / 再次访问的常见原因 -->
+    <div class="card">
+      <div class="card-title"><i></i> 常见使用场景</div>
+      <ul>
+        <li>想要快速回顾或查对某个信息时</li>
+        <li>把页面保留在收藏夹，隔段时间回来看看</li>
+        <li>推荐给身边朋友，简单说明后再由他们自己探索</li>
+        <li>作为备用参考入口，保持对站点的关注</li>
+      </ul>
+    </div>
+
+    <!-- 卡片3：可信但克制的提示 -->
+    <div class="card suggestion-card">
+      <div class="card-title"><i></i> 几点说明</div>
+      <p style="margin-bottom: 8px;">
+        本页仅提供客观介绍，不包含任何诱导性表述。<br>
+        所有信息均基于公开可验证的内容整理。使用时请依据自身判断。
+      </p>
+      <p style="font-size:0.9rem; color:#27686b;">
+        ⚈ 建议在稳定的网络环境下浏览<br>
+        ⚈ 如有疑问，可参考站内已有的说明区域
+      </p>
+    </div>
+  </div>
+
+  <!-- 使用建议卡片（单独一张，强调收藏/重新访问角度） -->
+  <div class="card" style="background: #ecf8f7; border: 1px solid #b9dfdd;">
+    <div class="card-title"><i></i> 如果你打算收藏或再次访问</div>
+    <p>
+      许多人会把这个页面添加到书签，或者保留在浏览器常用标签中。 
+      我们建议你在方便的时候简单浏览几项核心内容，之后每次回来都能快速进入状态。 
+      页面结构保持稳定，未来若有调整也会延续当前的主要分类方式。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h3>常见想法 · 简答</h3>
+    <div class="faq-item">
+      <strong>这个页面会频繁变动吗？</strong>
+      <p>核心摘要和指引会保持相对稳定，内容也会持续做小幅度优化，不会突然大改。</p>
+    </div>
+    <div class="faq-item">
+      <strong>如何快速再找到这里？</strong>
+      <p>建议使用浏览器的收藏功能，或者记下主要域名。也可以定期回来看看有无更新。</p>
+    </div>
+    <div class="faq-item">
+      <strong>是否有其他渠道可以了解更多？</strong>
+      <p>可以直接访问主站，那里有更完整的展示。下方也提供了直达链接。</p>
+    </div>
+  </div>
+
+  <!-- 嵌入 a 标签的自然句子，符合严格文本要求 -->
+  <div class="link-sentence">
+    如果你希望直接浏览主站，可以前往
+    <a href="https://main-shabasport.com">沙巴体育</a>
+    ，那里呈现了更详细的信息。
+  </div>
+
+  <!-- 额外的提示条，再次呼应收藏与关注 -->
+  <div class="notice-strip">
+    <span>📌 收藏本页 · 持续关注</span>
+    <span style="font-size:0.9rem;">更新频率：不定期优化，内容方向保持清晰</span>
+    <span>
+      <a href="https://main-shabasport.com">沙巴体育</a>
+    </span>
+  </div>
+
+  <footer>
+    产品说明页 · 基于公开信息整理 · 无诱导表述
+  </footer>
+</div>
+</body>
+</html>
